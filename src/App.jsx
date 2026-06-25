@@ -38,7 +38,8 @@ const BRAND = {
   accent: "#D98BA6",      // signature dusty rose
   accentDeep: "#A14E6E",  // darker rose for text on white
   ink: "#3A2330",         // primary text
-  coords: [41.3217, 19.8138] // Tirana
+  coords: [41.3248288, 19.8011345],
+  mapsUrl: "https://maps.app.goo.gl/auNPKekdkbHrRSSf6"
 };
 
 // Graceful fallback when a remote (Unsplash) image fails to load, so cards never
@@ -455,10 +456,7 @@ export default function App() {
 
   // Open native maps navigation to the store (Apple Maps on Apple devices, Google Maps elsewhere)
   const openDirections = () => {
-    const [lat, lng] = BRAND.coords;
-    const isApple = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
-    const url = isApple ? `https://maps.apple.com/?daddr=${lat},${lng}` : `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
-    window.open(url, '_blank', 'noopener');
+    window.open(BRAND.mapsUrl, '_blank', 'noopener');
   };
   const CATEGORIES = ["all", "bouquets", "roses", "arrangements", "weddings"];
   const NAV_CATEGORIES = ["bouquets", "roses", "arrangements", "weddings"];
@@ -1319,8 +1317,8 @@ export default function App() {
                 <div>
                   <h4 className="text-xs font-display font-semibold uppercase tracking-widest text-brand-deep">{t.visit.addressLabel}</h4>
                   <p className="text-base text-brand-dark mt-2.5 font-serif font-light leading-relaxed">
-                    Rruga e Kavajës, Pallati Mio<br />
-                    Tirana 1001, Albania
+                    Rruga e Kavajës 201<br />
+                    Njësia Nr. 7, Tiranë 1023
                   </p>
                   <p className="text-sm text-brand-dark/50 mt-1 font-sans font-light">{t.visit.addressNote}</p>
                 </div>
@@ -1424,7 +1422,7 @@ export default function App() {
                 </a>
                 <span className="flex items-center gap-3 text-base text-gray-300 font-light font-sans">
                   <span className="flex items-center justify-center w-10 h-10 border border-white/15 shrink-0"><MapPin className="w-4 h-4 text-brand-gold" /></span>
-                  Rruga e Kavajës, Tirana
+                  Rruga e Kavajës 201, Tiranë
                 </span>
               </div>
             </div>
